@@ -58,7 +58,7 @@
         "build": "tsup && tsx scripts/postbuild.mts",
         "dev": "tsup --watch",
         "pretest": "pnpm build && cd tests/depTypes && pnpm install",
-        "test": "lint && cd tests/depTypes && vite build && tsx runTests.mts",
+        "test": "cd tests/depTypes && vite build && tsx runTests.mts",
         "release": "bumpp && pnpm publish",
         "prepublishOnly": "pnpm run build"
     },
