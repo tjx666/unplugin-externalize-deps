@@ -1,24 +1,28 @@
-# unplugin-starter [![npm](https://img.shields.io/npm/v/unplugin-starter.svg)](https://npmjs.com/package/unplugin-starter)
+# unplugin-externalize-deps
 
-[![Unit Test](https://github.com/sxzz/unplugin-starter/actions/workflows/unit-test.yml/badge.svg)](https://github.com/sxzz/unplugin-starter/actions/workflows/unit-test.yml)
+[![NPM version](https://img.shields.io/npm/v/unplugin-externalize-deps?color=a1b858&label=)](https://www.npmjs.com/package/unplugin-externalize-deps) [![Unit Test](https://github.com/tjx666/unplugin-externalize-deps/actions/workflows/unit-test.yml/badge.svg)](https://github.com/tjx666/unplugin-externalize-deps/actions/workflows/unit-test.yml)
 
-Starter template for [unplugin](https://github.com/unjs/unplugin).
+externalize dependencies from production build
 
-## Installation
+## 📦 Installation
 
-```bash
-npm i unplugin-starter
+```shell
+# npm
+npm i unplugin-externalize-deps
+
+# pnpm
+pnpm i unplugin-externalize-deps
 ```
 
 <details>
 <summary>Vite</summary><br>
 
-```ts
+```typescript
 // vite.config.ts
-import UnpluginStarter from 'unplugin-starter/vite';
+import UnpluginExternalize from 'unplugin-externalize-deps/vite';
 
 export default defineConfig({
-  plugins: [UnpluginStarter()],
+  plugins: [UnpluginExternalize()],
 });
 ```
 
@@ -27,66 +31,39 @@ export default defineConfig({
 <details>
 <summary>Rollup</summary><br>
 
-```ts
+```typescript
 // rollup.config.js
-import UnpluginStarter from 'unplugin-starter/rollup';
+import UnpluginExternalize from 'unplugin-externalize-deps/rollup';
 
 export default {
-  plugins: [UnpluginStarter()],
+  plugins: [UnpluginExternalize()],
 };
 ```
 
 <br></details>
 
-<details>
-<summary>esbuild</summary><br>
+## ⚙️ Options
 
-```ts
-// esbuild.config.js
-import { build } from 'esbuild';
-
-build({
-  plugins: [require('unplugin-starter/esbuild')()],
-});
+```typescript
+export interface Options {
+  /** any first level field in package.json */
+  depTypes?: {
+    dependencies: boolean;
+    devDependencies: boolean;
+    optionalDependencies: boolean;
+    peerDependencies: boolean;
+    [key: string]: boolean;
+  };
+  /**
+   * whether externalize node builtin modules like: fs, path
+   * Note: this will also externalize node builtin modules with `node:` protocol like: node:fs, node:path
+   */
+  nodeBuiltins?: boolean;
+}
 ```
 
-<br></details>
+## ❤️ Thanks
 
-<details>
-<summary>Webpack</summary><br>
-
-```ts
-// webpack.config.js
-module.exports = {
-  /* ... */
-  plugins: [require('unplugin-starter/webpack')()],
-};
-```
-
-<br></details>
-
-<details>
-<summary>Vue CLI</summary><br>
-
-```ts
-// vue.config.js
-module.exports = {
-  configureWebpack: {
-    plugins: [require('unplugin-starter/webpack')()],
-  },
-};
-```
-
-<br></details>
-
-## Sponsors
-
-<p align="center">
-  <a href="https://cdn.jsdelivr.net/gh/sxzz/sponsors/sponsors.svg">
-    <img src='https://cdn.jsdelivr.net/gh/sxzz/sponsors/sponsors.svg'/>
-  </a>
-</p>
-
-## License
-
-[MIT](./LICENSE) License © 2022 [三咲智子](https://github.com/sxzz)
+- [unplugin-starter](https://github.com/sxzz/unplugin-starter)
+- [vite-plugin-externalize-deps](https://github.com/voracious/vite-plugin-externalize-deps)
+- [rollup-plugin-node-externals](https://github.com/Septh/rollup-plugin-node-externals)
