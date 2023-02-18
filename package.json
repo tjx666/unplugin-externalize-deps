@@ -5,7 +5,8 @@
     "keywords": [
         "unplugin",
         "rollup",
-        "vite"
+        "vite",
+        "external"
     ],
     "license": "MIT",
     "homepage": "https://github.com/tjx666/unplugin-externalize-deps#readme",
@@ -73,7 +74,6 @@
         "@yutengjing/eslint-config-typescript": "^0.2.5",
         "@yutengjing/prettier-config": "^0.0.1",
         "bumpp": "^8.2.1",
-        "changelogithub": "^0.12.7",
         "eslint": "^8.34.0",
         "eslint-define-config": "^1.15.0",
         "fast-glob": "^3.2.12",
