@@ -13,7 +13,7 @@ export default createUnplugin<Options | undefined>((rawOptions = {}) => {
         name: 'unplugin-externalize-deps',
 
         vite: {
-            config: async (_config, _env) => {
+            async config() {
                 return {
                     build: {
                         rollupOptions: {

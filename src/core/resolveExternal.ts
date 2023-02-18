@@ -1,3 +1,4 @@
+/* eslint-disable security/detect-non-literal-regexp */
 import fs from 'node:fs/promises';
 import { builtinModules } from 'node:module';
 import path from 'node:path';
@@ -16,7 +17,6 @@ export async function resolveExternal(options: OptionsResolved) {
     >) {
         if (options.depTypes[depType] === true) {
             for (const dep of Object.keys(pkg[depType] ?? {})) {
-                // eslint-disable-next-line security/detect-non-literal-regexp
                 const depMatcher = new RegExp(`^${escapeStringRegexp(dep)}(?:/.+)?$`);
                 externalDeps.add(depMatcher);
             }
@@ -25,7 +25,6 @@ export async function resolveExternal(options: OptionsResolved) {
 
     if (options.nodeBuiltins) {
         builtinModules.forEach((builtinModule) => {
-            // eslint-disable-next-line security/detect-non-literal-regexp
             const builtinMatcher = new RegExp(`^(?:node:)?${escapeStringRegexp(builtinModule)}$`);
             externalDeps.add(builtinMatcher);
         });
