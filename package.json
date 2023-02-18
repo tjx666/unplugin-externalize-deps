@@ -1,7 +1,6 @@
 {
     "name": "unplugin-externalize-deps",
     "version": "0.0.0",
-    "packageManager": "pnpm@7.27.1",
     "description": "Description.",
     "keywords": [
         "unplugin",
@@ -9,18 +8,26 @@
         "vite"
     ],
     "license": "MIT",
-    "homepage": "https://github.com/sxzz/unplugin-starter#readme",
+    "homepage": "https://github.com/tjx666/unplugin-externalize-deps#readme",
     "bugs": {
-        "url": "https://github.com/sxzz/unplugin-starter/issues"
+        "url": "https://github.com/tjx666/unplugin-externalize-deps/issues"
     },
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/sxzz/unplugin-starter.git"
+        "url": "git+https://github.com/tjx666/unplugin-externalize-deps.git"
     },
-    "author": "三咲智子 <sxzz@sxzz.moe>",
+    "author": {
+        "name": "YuTengjing",
+        "url": "https://github.com/tjx666",
+        "email": "ytj2713151713@gmail.com"
+    },
     "files": [
         "dist"
     ],
+    "packageManager": "pnpm@7.27.1",
+    "engines": {
+        "node": ">=16"
+    },
     "main": "./dist/index.js",
     "module": "./dist/index.mjs",
     "types": "./dist/index.d.ts",
@@ -74,8 +81,5 @@
         "tsx": "^3.12.3",
         "typescript": "^5.0.0-dev.20230218",
         "vite": "^4.1.2"
-    },
-    "engines": {
-        "node": ">=16"
     }
 }
