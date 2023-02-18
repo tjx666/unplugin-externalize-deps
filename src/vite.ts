@@ -1,4 +1,4 @@
-import unplugin from '.'
-import type {} from 'vite'
+import unplugin from '.';
+import type {} from 'vite';
 
-export default unplugin.vite
+export default unplugin.vite;
