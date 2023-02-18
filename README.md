@@ -15,11 +15,11 @@ npm i unplugin-starter
 
 ```ts
 // vite.config.ts
-import UnpluginStarter from 'unplugin-starter/vite'
+import UnpluginStarter from 'unplugin-starter/vite';
 
 export default defineConfig({
   plugins: [UnpluginStarter()],
-})
+});
 ```
 
 <br></details>
@@ -29,11 +29,11 @@ export default defineConfig({
 
 ```ts
 // rollup.config.js
-import UnpluginStarter from 'unplugin-starter/rollup'
+import UnpluginStarter from 'unplugin-starter/rollup';
 
 export default {
   plugins: [UnpluginStarter()],
-}
+};
 ```
 
 <br></details>
@@ -43,11 +43,11 @@ export default {
 
 ```ts
 // esbuild.config.js
-import { build } from 'esbuild'
+import { build } from 'esbuild';
 
 build({
   plugins: [require('unplugin-starter/esbuild')()],
-})
+});
 ```
 
 <br></details>
@@ -60,7 +60,7 @@ build({
 module.exports = {
   /* ... */
   plugins: [require('unplugin-starter/webpack')()],
-}
+};
 ```
 
 <br></details>
@@ -74,11 +74,10 @@ module.exports = {
   configureWebpack: {
     plugins: [require('unplugin-starter/webpack')()],
   },
-}
+};
 ```
 
 <br></details>
-
 
 ## Sponsors
 

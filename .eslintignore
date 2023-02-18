@@ -3,4 +3,3 @@ dist
 pnpm-lock.yaml
 tests/fixtures
 tests
-!tests/runTests.mts
