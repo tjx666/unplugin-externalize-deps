@@ -59,15 +59,23 @@
         "extends": "@yutengjing/eslint-config-typescript"
     },
     "prettier": "@yutengjing/prettier-config",
+    "lint-staged": {
+        "*.{ts,json,md}": [
+            "eslint --fix",
+            "prettier --write"
+        ]
+    },
+    "simple-git-hooks": {
+        "pre-commit": "npx lint-staged"
+    },
     "scripts": {
-        "lint": "eslint . --ext .ts,.json,.md",
-        "lint:fix": "pnpm run lint --fix",
+        "preinstall": "npx only-allow pnpm",
         "build": "tsup && tsx scripts/postbuild.mts",
         "dev": "tsup --watch",
         "pretest": "pnpm build && cd tests/depTypes && pnpm install",
         "test": "cd tests/depTypes && vite build && tsx runTests.mts",
-        "release": "bumpp && pnpm publish",
-        "prepublishOnly": "pnpm run build"
+        "prepublishOnly": "pnpm run build",
+        "release": "bumpp && pnpm publish"
     },
     "dependencies": {
         "escape-string-regexp": "^5.0.0",
@@ -80,7 +88,9 @@
         "bumpp": "^8.2.1",
         "eslint": "^8.34.0",
         "fast-glob": "^3.2.12",
+        "lint-staged": "^13.1.2",
         "prettier": "^2.8.4",
+        "simple-git-hooks": "^2.8.1",
         "ts-essentials": "^9.3.0",
         "tsup": "^6.6.3",
         "tsx": "^3.12.3",
