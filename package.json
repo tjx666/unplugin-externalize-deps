@@ -1,6 +1,6 @@
 {
     "name": "unplugin-externalize-deps",
-    "version": "0.0.4",
+    "version": "0.0.5",
     "description": "externalize dependencies from production build",
     "keywords": [
         "unplugin",
