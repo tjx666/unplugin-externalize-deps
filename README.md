@@ -1,6 +1,6 @@
 # unplugin-externalize-deps
 
-[![NPM version](https://img.shields.io/npm/v/unplugin-externalize-deps?color=a1b858&label=)](https://www.npmjs.com/package/unplugin-externalize-deps) [![Unit Test](https://github.com/tjx666/unplugin-externalize-deps/actions/workflows/unit-test.yml/badge.svg)](https://github.com/tjx666/unplugin-externalize-deps/actions/workflows/unit-test.yml)
+[![NPM version](https://img.shields.io/npm/v/unplugin-externalize-deps?color=a1b858&label=)](https://www.npmjs.com/package/unplugin-externalize-deps) [![Test](https://github.com/tjx666/unplugin-externalize-deps/actions/workflows/test.yml/badge.svg)](https://github.com/tjx666/unplugin-externalize-deps/actions/workflows/test.yml)
 
 externalize dependencies from production build
 

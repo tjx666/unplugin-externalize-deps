@@ -75,7 +75,7 @@
         "pretest": "pnpm build && cd tests/depTypes && pnpm install",
         "test": "cd tests/depTypes && vite build && tsx runTests.mts",
         "prepublishOnly": "pnpm run build",
-        "release": "bumpp && pnpm publish"
+        "release": "bumpp -c \"release: v%s\" && pnpm publish"
     },
     "dependencies": {
         "escape-string-regexp": "^5.0.0",
