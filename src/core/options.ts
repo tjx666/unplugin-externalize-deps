@@ -1,4 +1,3 @@
-import deepMerge from 'deepmerge';
 import type { DeepRequired } from 'ts-essentials';
 
 export interface Options {
@@ -23,20 +22,20 @@ export interface Options {
      */
     nodeBuiltins?: boolean;
 }
-
 export type OptionsResolved = DeepRequired<Options>;
 
-export function resolveOption(options: Options) {
-    return deepMerge(
-        {
-            depTypes: {
-                dependencies: true,
-                devDependencies: false,
-                optionalDependencies: true,
-                peerDependencies: true,
-            },
-            nodeBuiltins: true,
-        } satisfies OptionsResolved,
-        options,
-    ) as OptionsResolved;
+export function resolveOption(options: Options): OptionsResolved {
+    const defaultDepTypes = {
+        dependencies: true,
+        devDependencies: false,
+        optionalDependencies: true,
+        peerDependencies: true,
+    };
+    return {
+        depTypes:
+            typeof options.depTypes === 'object'
+                ? { ...defaultDepTypes, ...options.depTypes }
+                : defaultDepTypes,
+        nodeBuiltins: options.nodeBuiltins ?? true,
+    };
 }

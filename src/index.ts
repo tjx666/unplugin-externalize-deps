@@ -24,7 +24,7 @@ export default createUnplugin<Options | undefined>((rawOptions = {}) => {
             },
         },
 
-        // ref: https://github.com/Septh/rollup-plugin-node-externals/blob/main/src/index.ts#L231
+        // ref: https://github.com/Septh/rollup-plugin-node-externals/blob/main/src/index.ts
         rollup: {
             async buildStart() {
                 external = await resolveExternal(optionsResolved);

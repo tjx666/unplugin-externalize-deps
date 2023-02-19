@@ -7,14 +7,15 @@ import escapeStringRegexp from 'escape-string-regexp';
 
 import type { OptionsResolved } from './options';
 
+/**
+ * ref: https://github.com/voracious/vite-plugin-externalize-deps/blob/main/src/index.ts
+ */
 export async function resolveExternal(options: OptionsResolved) {
     const externalDeps = new Set<RegExp>();
     const pkgPath = path.resolve(process.cwd(), 'package.json');
     const pkg = JSON.parse(await fs.readFile(pkgPath, 'utf8'));
 
-    for (const depType of Object.keys(options.depTypes) as Array<
-        keyof OptionsResolved['depTypes']
-    >) {
+    for (const depType of Object.keys(options.depTypes)) {
         if (options.depTypes[depType] === true) {
             for (const dep of Object.keys(pkg[depType] ?? {})) {
                 const depMatcher = new RegExp(`^${escapeStringRegexp(dep)}(?:/.+)?$`);
