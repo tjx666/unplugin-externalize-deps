@@ -54,6 +54,11 @@
         "access": "public",
         "registry": "https://registry.npmjs.org/"
     },
+    "eslintConfig": {
+        "root": true,
+        "extends": "@yutengjing/eslint-config-typescript"
+    },
+    "prettier": "@yutengjing/prettier-config",
     "scripts": {
         "lint": "eslint . --ext .ts,.json,.md",
         "lint:fix": "pnpm run lint --fix",
@@ -65,7 +70,6 @@
         "prepublishOnly": "pnpm run build"
     },
     "dependencies": {
-        "deepmerge": "^4.3.0",
         "escape-string-regexp": "^5.0.0",
         "unplugin": "^1.1.0"
     },
@@ -75,7 +79,6 @@
         "@yutengjing/prettier-config": "^0.0.1",
         "bumpp": "^8.2.1",
         "eslint": "^8.34.0",
-        "eslint-define-config": "^1.15.0",
         "fast-glob": "^3.2.12",
         "prettier": "^2.8.4",
         "ts-essentials": "^9.3.0",

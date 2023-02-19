@@ -12,6 +12,6 @@
         "types": ["node"],
         "jsx": "preserve"
     },
-    "include": ["src", "tests", "scripts"],
-    "exclude": ["tests/fixtures"]
+    "include": ["src", "scripts"],
+    "exclude": ["tests"]
 }
