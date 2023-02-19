@@ -19,10 +19,10 @@ pnpm i unplugin-externalize-deps
 
 ```typescript
 // vite.config.ts
-import UnpluginExternalize from 'unplugin-externalize-deps/vite';
+import UnpluginExternalizeDeps from 'unplugin-externalize-deps/vite';
 
 export default defineConfig({
-  plugins: [UnpluginExternalize()],
+  plugins: [UnpluginExternalizeDeps()],
 });
 ```
 
@@ -33,10 +33,10 @@ export default defineConfig({
 
 ```typescript
 // rollup.config.js
-import UnpluginExternalize from 'unplugin-externalize-deps/rollup';
+import UnpluginExternalizeDeps from 'unplugin-externalize-deps/rollup';
 
 export default {
-  plugins: [UnpluginExternalize()],
+  plugins: [UnpluginExternalizeDeps()],
 };
 ```
 
