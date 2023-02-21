@@ -1,7 +1,10 @@
 import { defineConfig } from 'vite';
+import path from 'node:path';
 
 import externalizeDeps from '../../dist/vite.mjs';
 
+const cwd = process.cwd();
+const resolveRootFile = (file) => path.resolve(cwd, file);
 export default defineConfig({
     plugins: [
         externalizeDeps({
@@ -11,7 +14,8 @@ export default defineConfig({
                 optionalDependencies: true,
                 peerDependencies: true,
             },
-            nodeBuiltins: true
+            nodeBuiltins: true,
+            packagePath: [resolveRootFile('package.json'), resolveRootFile('web-module.json')]
         }),
     ],
     build: {

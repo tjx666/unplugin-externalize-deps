@@ -1,0 +1,6 @@
+{
+    "defaultProvider": "dancf",
+    "dependencies": {
+        "aaa": "0.0.1"
+    }
+}

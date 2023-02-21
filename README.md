@@ -66,6 +66,12 @@ export interface Options {
    * @default true
    */
   nodeBuiltins?: boolean;
+  /**
+   * the path(s) to your package.json, or similar json config file, for example: importmap config
+   *
+   * @default path.resolve(process.cwd(), 'package.json')
+   */
+  packagePath?: string | string[];
 }
 ```
 

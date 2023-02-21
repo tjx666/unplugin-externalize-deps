@@ -1,3 +1,5 @@
+import path from 'node:path';
+
 import type { DeepRequired } from 'ts-essentials';
 
 export interface Options {
@@ -21,8 +23,16 @@ export interface Options {
      * @default true
      */
     nodeBuiltins?: boolean;
+    /**
+     * the path(s) to your package.json, or similar json config file, for example: importmap config
+     *
+     * @default path.resolve(process.cwd(), 'package.json')
+     */
+    packagePath?: string | string[];
 }
-export type OptionsResolved = DeepRequired<Options>;
+export type OptionsResolved = Omit<DeepRequired<Options>, 'packagePath'> & {
+    packagePath: string[];
+};
 
 export function resolveOption(options: Options): OptionsResolved {
     const defaultDepTypes = {
@@ -37,5 +47,8 @@ export function resolveOption(options: Options): OptionsResolved {
                 ? { ...defaultDepTypes, ...options.depTypes }
                 : defaultDepTypes,
         nodeBuiltins: options.nodeBuiltins ?? true,
+        packagePath: (typeof options.packagePath === 'string'
+            ? [options.packagePath]
+            : options.packagePath) ?? [path.resolve(process.cwd(), 'package.json')],
     };
 }
