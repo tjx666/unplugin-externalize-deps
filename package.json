@@ -85,7 +85,6 @@
         "release": "bumpp -c \"release: v%s\" && pnpm publish"
     },
     "dependencies": {
-        "escape-string-regexp": "^5.0.0",
         "unplugin": "^1.1.0"
     },
     "devDependencies": {
