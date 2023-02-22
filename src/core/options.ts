@@ -20,7 +20,7 @@ export interface Options {
      *
      * Note: this will also externalize node builtin modules with `node:` protocol, like: node:fs, node:path
      *
-     * @default true
+     * @default false
      */
     nodeBuiltins?: boolean;
     /**
@@ -46,7 +46,7 @@ export function resolveOption(options: Options): OptionsResolved {
             typeof options.depTypes === 'object'
                 ? { ...defaultDepTypes, ...options.depTypes }
                 : defaultDepTypes,
-        nodeBuiltins: options.nodeBuiltins ?? true,
+        nodeBuiltins: options.nodeBuiltins ?? false,
         packagePath: (typeof options.packagePath === 'string'
             ? [options.packagePath]
             : options.packagePath) ?? [path.resolve(process.cwd(), 'package.json')],
