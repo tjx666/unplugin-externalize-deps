@@ -76,7 +76,8 @@
     },
     "scripts": {
         "preinstall": "npx only-allow pnpm",
-        "build": "tsup && tsx scripts/postbuild.mts",
+        "clean": "rimraf -rf dist",
+        "build": "pnpm clean && tsup && tsx scripts/postbuild.mts",
         "dev": "tsup --watch",
         "pretest": "pnpm build",
         "test": "vitest --test-timeout=10000",
@@ -99,6 +100,7 @@
         "fast-glob": "^3.2.12",
         "lint-staged": "^13.2.2",
         "prettier": "^2.8.8",
+        "rimraf": "^5.0.1",
         "rollup": "^3.23.0",
         "simple-git-hooks": "^2.8.1",
         "ts-essentials": "^9.3.2",

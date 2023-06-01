@@ -4,8 +4,9 @@
     "description": "",
     "main": "index.js",
     "scripts": {
-        "build:vite": "vite build",
-        "build:rollup": "rollup -c",
+        "clean": "rimraf -rf ./dist",
+        "build:vite": "pnpm clean && vite build",
+        "build:rollup": "pnpm clean && rollup -c",
         "build": "pnpm build:vite && pnpm build:rollup"
     },
     "keywords": [],
