@@ -54,8 +54,7 @@
             "types": "./dist/rollup.d.ts",
             "require": "./dist/rollup.js",
             "import": "./dist/rollup.mjs"
-        },
-        "./*": "./*"
+        }
     },
     "publishConfig": {
         "access": "public",
@@ -80,29 +79,29 @@
         "build": "tsup && tsx scripts/postbuild.mts",
         "dev": "tsup --watch",
         "pretest": "pnpm build && cd tests/depTypes && pnpm install",
-        "test": "vitest",
+        "test": "vitest --test-timeout=10000",
         "prepublishOnly": "pnpm run build",
         "release": "bumpp -c \"release: v%s\" && pnpm publish"
     },
     "dependencies": {
-        "unplugin": "^1.1.0"
+        "unplugin": "^1.3.1"
     },
     "devDependencies": {
-        "@types/node": "^18.14.0",
-        "@yutengjing/eslint-config-typescript": "^0.2.5",
+        "@types/node": "^18.16.16",
+        "@yutengjing/eslint-config-typescript": "^0.4.1",
         "@yutengjing/prettier-config": "^0.0.1",
-        "bumpp": "^8.2.1",
-        "eslint": "^8.34.0",
+        "bumpp": "^9.1.0",
+        "eslint": "^8.41.0",
         "execa": "^7.1.1",
         "fast-glob": "^3.2.12",
-        "lint-staged": "^13.1.2",
-        "prettier": "^2.8.4",
+        "lint-staged": "^13.2.2",
+        "prettier": "^2.8.8",
         "simple-git-hooks": "^2.8.1",
-        "ts-essentials": "^9.3.0",
-        "tsup": "^6.6.3",
-        "tsx": "^3.12.3",
-        "typescript": "^5.0.0-dev.20230218",
-        "vite": "^4.1.2",
+        "ts-essentials": "^9.3.2",
+        "tsup": "^6.7.0",
+        "tsx": "^3.12.7",
+        "typescript": "^5.0.4",
+        "vite": "^4.3.9",
         "vitest": "^0.31.3"
     }
 }
