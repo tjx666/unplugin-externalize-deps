@@ -29,9 +29,17 @@ export interface Options {
      * @default path.resolve(process.cwd(), 'package.json')
      */
     packagePath?: string | string[];
+    /**
+     * specify a list of deps which must bundled, a dependency will not excluded if matched
+     *
+     * @example ['axios', /lodash(-es)?/]
+     * @default []
+     */
+    bundleDeps?: Array<string | RegExp>;
 }
-export type OptionsResolved = Omit<DeepRequired<Options>, 'packagePath'> & {
+export type OptionsResolved = Omit<DeepRequired<Options>, 'packagePath' | 'bundleDeps'> & {
     packagePath: string[];
+    bundleDeps: RegExp[];
 };
 
 export function resolveOption(options: Options): OptionsResolved {
@@ -50,5 +58,10 @@ export function resolveOption(options: Options): OptionsResolved {
         packagePath: (typeof options.packagePath === 'string'
             ? [options.packagePath]
             : options.packagePath) ?? [path.resolve(process.cwd(), 'package.json')],
+        bundleDeps: [...(options.bundleDeps ?? [])].map((bundleDep) => {
+            // eslint-disable-next-line security/detect-non-literal-regexp
+            if (typeof bundleDep === 'string') return new RegExp(`^${bundleDep}$`);
+            return bundleDep;
+        }),
     };
 }
