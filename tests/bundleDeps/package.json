@@ -4,14 +4,16 @@
     "description": "",
     "main": "index.js",
     "scripts": {
-        "build": "vite build"
+        "build:vite": "vite build",
+        "build:rollup": "rollup -c",
+        "build": "pnpm build:vite && pnpm build:rollup"
     },
     "keywords": [],
     "author": "",
     "license": "ISC",
     "dependencies": {
-        "lodash": "^4.17.21",
-        "axios": "^1.4.0"
+        "axios": "^1.4.0",
+        "lodash": "^4.17.21"
     },
     "peerDependencies": {
         "vite": "^4.1.2"

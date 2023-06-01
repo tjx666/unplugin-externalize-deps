@@ -1,13 +1,25 @@
 import path from 'node:path';
 
-import { defineConfig } from 'vite';
+import rollupPluginCommonjs from '@rollup/plugin-commonjs';
+import rollupPluginJson from '@rollup/plugin-json';
+import rollupPLuginNodeResolve from '@rollup/plugin-node-resolve';
+import { defineConfig } from 'rollup';
 
-import externalizeDeps from '../../dist/vite.mjs';
+import externalizeDeps from '../../dist/rollup.mjs';
 
 const cwd = process.cwd();
 const resolveRootFile = (file) => path.resolve(cwd, file);
+
 export default defineConfig({
+    input: 'index.mjs',
+    output: {
+        format: 'esm',
+        file: './dist/rollup-bundle.esm.js',
+    },
     plugins: [
+        rollupPluginCommonjs(),
+        rollupPLuginNodeResolve(),
+        rollupPluginJson(),
         externalizeDeps({
             depTypes: {
                 dependencies: true,
@@ -19,13 +31,4 @@ export default defineConfig({
             packagePath: [resolveRootFile('package.json'), resolveRootFile('web-module.json')],
         }),
     ],
-    build: {
-        lib: {
-            entry: 'index.mjs',
-            formats: ['esm'],
-            fileName: 'vite-bundle',
-        },
-        minify: false,
-        reportCompressedSize: false,
-    },
 });

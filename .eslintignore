@@ -1,4 +1,4 @@
 node_modules
 dist
 pnpm-lock.yaml
-tests/**/output.js
+tests/**/*output.js

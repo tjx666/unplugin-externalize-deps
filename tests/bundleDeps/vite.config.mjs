@@ -9,11 +9,12 @@ export default defineConfig({
             bundleDeps: ['lodash', /axio/],
         }),
     ],
+
     build: {
         lib: {
             entry: 'index.mjs',
             formats: ['esm'],
-            fileName: 'bundle',
+            fileName: 'vite-bundle',
         },
         minify: false,
         reportCompressedSize: false,
