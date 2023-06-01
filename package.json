@@ -78,7 +78,7 @@
         "preinstall": "npx only-allow pnpm",
         "build": "tsup && tsx scripts/postbuild.mts",
         "dev": "tsup --watch",
-        "pretest": "pnpm build && cd tests/depTypes && pnpm install",
+        "pretest": "pnpm build",
         "test": "vitest --test-timeout=10000",
         "prepublishOnly": "pnpm run build",
         "release": "bumpp -c \"release: v%s\" && pnpm publish"
