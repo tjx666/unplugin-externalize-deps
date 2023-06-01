@@ -12,6 +12,6 @@
         "types": ["node"],
         "jsx": "preserve"
     },
-    "include": ["src", "scripts"],
+    "include": ["src", "scripts", "tests/**/*.test.ts"],
     "exclude": ["tests"]
 }

@@ -1,0 +1,25 @@
+{
+    "name": "dep-types",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+        "build": "vite build"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "dependencies": {
+        "lodash": "^4.17.21",
+        "axios": "^1.4.0"
+    },
+    "peerDependencies": {
+        "vite": "^4.1.2"
+    },
+    "devDependencies": {
+        "path": "^0.12.7"
+    },
+    "optionalDependencies": {
+        "typescript": "^4.9.5"
+    }
+}
