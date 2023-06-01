@@ -72,6 +72,13 @@ export interface Options {
    * @default path.resolve(process.cwd(), 'package.json')
    */
   packagePath?: string | string[];
+  /**
+   * specify a list of deps which must bundled, a dependency will not excluded if matched
+   *
+   * @example ['axios', /lodash(-es)?/]
+   * @default []
+   */
+  bundleDeps?: Array<string | RegExp>;
 }
 ```
 
